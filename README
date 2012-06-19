@@ -4,3 +4,16 @@ A ZCD packet modem for the Microchip PIC 16F88.
 Designed for use with the MiniGate. (See https://github.com/ab0tj/MiniGate)
 
 Source code is C, written using MPLAB X and the HiTech C Compiler.
+
+A schematic of the TNC that this was based on is available in Bob_Ball_TNC.pdf
+
+The modem will decode incoming AFSK data, removing NRZI and any bit stuffing,
+and then send the recieved bytes out the serial port. No error checking or other
+processing is performed, in order to keep the modem as transparent as possible
+while still taking care of the timing-sensitive TNC functions. This way, the
+rest of the TNC can be implemented on a non-realtime system (that would have 
+much more buffer space available than the PIC chip does), such as a PC or
+Netduino.
+
+This software is free and open source, released under the GPLv3 license.
+See the file LICENSE for more information.
