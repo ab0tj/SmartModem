@@ -1,0 +1,10 @@
+build/default/debug/Main.p1:	\
+	/usr/hitech/picc/9.82/include/pic16f88.h	\
+	/usr/hitech/picc/9.82/include/stdarg.h	\
+	/usr/hitech/picc/9.82/include/eeprom_routines.h	\
+	/usr/hitech/picc/9.82/include/htc.h	\
+	/usr/hitech/picc/9.82/include/stdio.h	\
+	/usr/hitech/picc/9.82/include/conio.h	\
+	/usr/hitech/picc/9.82/include/pic.h	\
+	/usr/hitech/picc/9.82/include/chip_select.h	\
+	/usr/hitech/picc/9.82/include/stdlib.h	\

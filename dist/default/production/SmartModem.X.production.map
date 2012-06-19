@@ -1,0 +1,272 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=/usr/hitech/picc/9.82/dat/en_msgs.txt -cs \
+  -h+dist/default/production/SmartModem.X.production.sym -z -Q16F88 -ol.obj \
+  -Mdist/default/production/SmartModem.X.production.map -E1 \
+  -ACONST=00h-0FFhx16 -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
+  -AENTRY=00h-0FFhx16 -ASTRING=00h-0FFhx16 -ABANK0=020h-06Fh \
+  -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ACOMMON=070h-07Fh \
+  -ASFR0=00h-01Fh -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
+  -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pfunctab=CODE \
+  -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
+  -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
+  -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
+  /tmp/cgtMgyYiR.obj dist/default/production/SmartModem.X.production.obj 
+
+Object code version is 3.10
+
+Machine type is 16F88
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+/tmp/cgtMgyYiR.obj
+                end_init                             11       11        2        8       0
+                reset_vec                             0        0        2        0       0
+dist/default/production/SmartModem.X.production.obj
+                intentry                              4        4        D        8       0
+                config                             2007     2007        2     400E       0
+                text78                               13       13       9B        8       0
+                text77                               AE       AE       2B        8       0
+                maintext                             E5       E5        7        8       0
+                cstackCOMMON                         78       78        5       70       1
+                bssCOMMON                            70       70        8       70       1
+                bitbssCOMMON                        3E8       7D        3       70       1     8
+                cinit                                D9       D9        C        8       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CONST          
+
+        CLASS   CODE           
+                end_init                             11       11        2         0
+                intentry                              4        4        D         0
+                reset_vec                             0        0        2         0
+                text78                               13       13       9B         0
+                text77                               AE       AE       2B         0
+                maintext                             E5       E5        7         0
+                cinit                                D9       D9        C         0
+
+        CLASS   STRCODE        
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   COMMON         
+                cstackCOMMON                         78       78        5         1
+                bssCOMMON                            70       70        8         1
+                bitbssCOMMON                        3E8       7D        3         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+                config                             2007     2007        2         0
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000002  000002         0       0  CODE        2
+                intentry                       000004  0000E8  0000EC         8       0  CODE        2
+                bssCOMMON                      000070  00000E  00007E        70       1  COMMON      1
+                config                         002007  000002  002009      400E       0  CONFIG      2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0020-006F             50           1
+        BANK1            00A0-00EF             50           1
+        BANK2            0110-016F             60           1
+        BANK3            0190-01EF             60           1
+        CODE             0002-0003              2           2
+                         00EC-0FFF            714
+        CONST            0002-0003              2           2
+                         00EC-0FFF            100
+        EEDATA           2100-21FF            100           2
+        ENTRY            0002-0003              2           2
+                         00EC-0FFF            100
+        IDLOC            2000-2003              4           2
+        RAM              0020-006F             50           1
+                         00A0-00EF             50
+                         0110-016F             60
+                         0190-01EF             60
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        SFR2             0100-010F             10           1
+        SFR3             0180-018F             10           1
+        STRCODE          0002-0003              2           2
+                         00EC-0FFF            F14
+        STRING           0002-0003              2           2
+                         00EC-0FFF            100
+
+                                  Symbol Table
+
+??_Init_Hardware        cstackCOMMON 007D
+??_isr                  cstackCOMMON 0078
+??_main                 cstackCOMMON 007D
+?_Init_Hardware         cstackCOMMON 0078
+?_isr                   cstackCOMMON 0078
+?_main                  cstackCOMMON 0078
+_ANSEL                  (abs)        009B
+_CARRY                  (abs)        0018
+_CMCON                  (abs)        009C
+_EEADR                  (abs)        010D
+_EECON1                 (abs)        018C
+_EECON2                 (abs)        018D
+_EEDATA                 (abs)        010C
+_GIE                    (abs)        005F
+_INTCON                 (abs)        000B
+_Init_Hardware          text77       00AE
+_OPTION_REG             (abs)        0081
+_PIE1                   (abs)        008C
+_PIE2                   (abs)        008D
+_PORTA                  (abs)        0005
+_PORTB                  (abs)        0006
+_RA4                    (abs)        002C
+_RBIF                   (abs)        0058
+_RCSTA                  (abs)        0018
+_RD                     (abs)        0C60
+_SPBRG                  (abs)        0099
+_T1CON                  (abs)        0010
+_T2CON                  (abs)        0012
+_TMR0                   (abs)        0001
+_TMR2                   (abs)        0011
+_TMR2IF                 (abs)        0061
+_TRISA                  (abs)        0085
+_TRISB                  (abs)        0086
+_TXREG                  (abs)        0019
+_TXSTA                  (abs)        0098
+_WR                     (abs)        0C61
+_WREN                   (abs)        0C62
+__Habs1                 abs1         0000
+__Hbank0                bank0        0000
+__Hbank1                bank1        0000
+__Hbank2                bank2        0000
+__Hbank3                bank3        0000
+__HbitbssCOMMON         bitbssCOMMON 0000
+__HbssCOMMON            bssCOMMON    0000
+__Hcinit                cinit        0000
+__Hclrtext              clrtext      0000
+__Hcode                 code         0000
+__Hcommon               common       0000
+__Hconfig               config       2009
+__HcstackCOMMON         cstackCOMMON 0000
+__Heeprom_data          eeprom_data  0000
+__Hend_init             end_init     0013
+__Hfunctab              functab      0000
+__Hidloc                idloc        0000
+__Hinit                 init         0011
+__Hintentry             intentry     0011
+__Hmaintext             maintext     0000
+__Hpowerup              powerup      0000
+__Hram                  ram          0000
+__Hreset_vec            reset_vec    0002
+__Hsfr0                 sfr0         0000
+__Hsfr1                 sfr1         0000
+__Hsfr2                 sfr2         0000
+__Hsfr3                 sfr3         0000
+__Hstrings              strings      0000
+__Htext                 text         0000
+__Labs1                 abs1         0000
+__Lbank0                bank0        0000
+__Lbank1                bank1        0000
+__Lbank2                bank2        0000
+__Lbank3                bank3        0000
+__LbitbssCOMMON         bitbssCOMMON 0000
+__LbssCOMMON            bssCOMMON    0000
+__Lcinit                cinit        0000
+__Lclrtext              clrtext      0000
+__Lcode                 code         0000
+__Lcommon               common       0000
+__Lconfig               config       2007
+__LcstackCOMMON         cstackCOMMON 0000
+__Leeprom_data          eeprom_data  0000
+__Lend_init             end_init     0011
+__Lfunctab              functab      0000
+__Lidloc                idloc        0000
+__Linit                 init         0011
+__Lintentry             intentry     0004
+__Lmaintext             maintext     0000
+__Lpowerup              powerup      0000
+__Lram                  ram          0000
+__Lreset_vec            reset_vec    0000
+__Lsfr0                 sfr0         0000
+__Lsfr1                 sfr1         0000
+__Lsfr2                 sfr2         0000
+__Lsfr3                 sfr3         0000
+__Lstrings              strings      0000
+__Ltext                 text         0000
+__S0                    (abs)        2009
+__S1                    (abs)        007E
+__S2                    (abs)        0000
+__end_of_Init_Hardware  text77       00D9
+__end_of_isr            text78       00AE
+__end_of_main           maintext     00EC
+__pbitbssCOMMON         bitbssCOMMON 03E8
+__pbssCOMMON            bssCOMMON    0070
+__pcstackCOMMON         cstackCOMMON 0078
+__pintentry             intentry     0004
+__pmaintext             maintext     00E5
+__ptext76               text76       0000
+__ptext77               text77       00AE
+__ptext78               text78       0013
+__ptext79               text79       0000
+__size_of_Init_Hardware (abs)        0000
+__size_of_isr           (abs)        0000
+__size_of_main          (abs)        0000
+_busy                   bitbssCOMMON 03E8
+_byte                   bssCOMMON    0070
+_exit                   init         0011
+_isr                    text78       0013
+_main                   maintext     00E5
+btemp                   (abs)        007E
+end_of_initialization   cinit        00E2
+interrupt_function      intentry     0004
+intlevel0               functab      0000
+intlevel1               functab      0000
+intlevel2               functab      0000
+intlevel3               functab      0000
+intlevel4               functab      0000
+intlevel5               functab      0000
+isr@bit_count           bssCOMMON    0071
+isr@count               bssCOMMON    0072
+isr@dcd                 bssCOMMON    0073
+isr@last                bitbssCOMMON 03E9
+isr@last8bits           bssCOMMON    0074
+isr@next_sample         bssCOMMON    0075
+isr@ones_count          bssCOMMON    0076
+isr@rxtoggled           bitbssCOMMON 03EA
+isr@sample_clock        bssCOMMON    0077
+reset_vec               reset_vec    0000
+saved_w                 (abs)        007E
+start                   init         0011
+start_initialization    cinit        00D9
+wtemp0                  (abs)        007E
