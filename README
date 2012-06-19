@@ -1,6 +1,6 @@
 SmartModem
 
 A ZCD packet modem for the Microchip PIC 16F88.
-Designed for use with the MiniGate.
+Designed for use with the MiniGate. (See https://github.com/ab0tj/MiniGate)
 
 Source code is C, written using MPLAB X and the HiTech C Compiler.
