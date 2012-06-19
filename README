@@ -15,5 +15,13 @@ rest of the TNC can be implemented on a non-realtime system (that would have
 much more buffer space available than the PIC chip does), such as a PC or
 Netduino.
 
+Transmit functionality is planned but not yet implemented.
+
+The software receiving bytes from the SmartModem can assume that any bytes
+received are data straight from the AFSK input signal, except 0x1B. 0x1B is
+used as an escape character of sorts. An AX.25 flag will be preceeded by the
+escape byte to distinguish it from a 'bit stuffed' 0x7B (~) in the packet data.
+If 0x1B appears in the packet data, it will be sent twice.
+
 This software is free and open source, released under the GPLv3 license.
 See the file LICENSE for more information.
