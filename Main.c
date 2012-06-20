@@ -11,123 +11,130 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__CONFIG(CP_OFF & CCPMX_RB0 & DEBUG_OFF & WRT_OFF & CPD_OFF & LVP_OFF & BOREN_OFF & MCLRE_OFF & PWRTE_OFF & WDTE_OFF & FOSC_HS);
+__CONFIG(CP_OFF & CCPMX_RB0 & WRT_OFF & CPD_OFF & LVP_OFF & BOREN_OFF & MCLRE_OFF & PWRTE_OFF & WDTE_OFF & FOSC_HS);
 __CONFIG(IESO_OFF & FCMEN_OFF);
 
-bit busy;
-char byte;
+bit last;
+bit rxtoggled;
+bit dcd;
+bit flag;
+unsigned char count;
+unsigned char last8bits;
+unsigned char bit_count;
+unsigned char sample_clock;
+unsigned char next_sample = 8;
+unsigned char ones_count;
+
 
 void Init_Hardware(void) {
-    INTCON = 0b11001000;        // Interrupt config
-    PIE1 = 0b00000010;          // Peripheral Interrupt config 1
-    PIE2 = 0b01000000;          // Peripheral Interrupt config 2
-    OPTION_REG = 0b10000100;    // Timer0 internal clock, 1:16 pre
+    OPTION_REG = 0b10000011;    // Timer0 internal clock, 1:16 pre
     T1CON = 0b00110000;         // Timer1 internal clock, 1:8 pre, disabled
     T2CON = 0b00000101;         // Timer2 internal clock, 1:4 pre, no post
-    CMCON = 0b00000110;         // Comparator config
     ANSEL = 0b00011111;         // Analog pins config
     TRISA = 0b11110111;         // Port A Config
     TRISB = 0b00110100;         // Port B Config
-    PORTA = 0b00000000;         // Zero the Port A outputs
-    PORTB = 0b00000000;         // Zero the Port B outputs
     RCSTA = 0b10100000;         // Serial port RX Config
     TXSTA = 0b00100100;         // Serial port TX Config
-    SPBRG = 129;                // 9600 Baud
-    TMR2 = 126;                 // Set ~9600Hz bit timer
+    SPBRG = 129;                 // 9600 Baud
+    CMCON = 0b00000110;         // Comparator config
+    INTCON = 0b11001000;        // Interrupt config
+    PIE1 = 0b00000010;          // Peripheral Interrupt config 1
+    PR2 = 130;                  // Set ~9600Hz bit timer
 }
 
 void interrupt isr(void) {
-    static char count;
-    static bit last;
-    static bit rxtoggled;
-    static char last8bits;
-    static char bit_count;
-    static char dcd;
-    static char sample_clock;
-    static char next_sample;
-    static char ones_count;
-
+    count = TMR0;
     if (RBIF) // Zero-crossing detected
     {
-        count = TMR0;
-        TMR0 = 0;
-        RBIF = 0;
-        if (count > 92) // Above 1700Hz?
+        //TMR0 = 0;
+        if (count > 91) // Under 1700Hz?
         {
-            if (last == 0)
+            TMR0 = 0;
+            if (!last)
             {
                 rxtoggled = 1;
-                dcd = count;
+                dcd = 1;
             }
             last = 1;
         }
-        else if (count > 49) // Ignore freq. above 3200Hz
+        else if (count > 48) // Ignore freq. above 3200Hz
         {
-            if (last == 1)
+            TMR0 = 0;
+            if (last)
             {
                 rxtoggled = 1;
-                dcd = count;
+                dcd = 1;
             }
+            last = 0;
         }
+        RB4 = 0;
+        RBIF = 0;
     }
-    else if (TMR2IF) // Bit timer interrupt
+
+    if (TMR2IF) // Bit timer interrupt
     {
-        TMR2 = 126; // ~9600 Hz
-        TMR2IF = 0;
-        if (dcd)
-        {
-            dcd--;
-            busy = 1;
-            if (rxtoggled)
+        if (dcd)									// If we are actively monitoring a signal
+	{
+
+            if (rxtoggled)						// See if a tone toggle was recognized
             {
-                if (ones_count != 5) // If this zero wasn't just for bitstuffing...
+                if(ones_count != 5)			// Only process if NOT a bit stuff toggle
                 {
-                    bit_count++;
-                    last8bits >>= 1; // Shift in a zero, from the left
+                    bit_count++;				// Increment bit counter
+                    last8bits >>= 1;			// Shift in a zero from the left
+                }
+                if(ones_count == 6) flag = 1;
+                rxtoggled = 0;			// Clear toggle flag
+                ones_count = 0;				// Clear number of sequential ones
+                sample_clock = 0;				// Sync clock for bit sampling
+                next_sample = 12;				// Grab next bit after 12 clicks
+            }
+            else
+            {
+                if (++sample_clock == next_sample)	// Time to grab next bit?
+		{
+                    ones_count++;				// Increment ones counter since no toggle
+                    bit_count++;				// Increment bit counter
+                    last8bits >>= 1;			// Shift the bits to the right
+                    last8bits |= 0x80;		//  shift in a one from the left
+                    sample_clock = 0;			// Clear the clock for bit sampling
+                    next_sample = 8;			// Grab next bit 8 clicks from now
                 }
 
-                rxtoggled = 0;
-                ones_count = 0;
-                sample_clock = 0;
-                next_sample = 12; // 1.5 ax.25 bits
+            }	// end else for 'if (rxtoggled)'
+
+            if (flag)			// If the last 8 bits match the ax25 flag
+            {
+                bit_count = 0;                      // Sync bit_count for an 8-bit boundary
+                flag = 0;
+                TXREG = 0x1B; // TODO: change to 1B in final source
+                TXREG = 0x7E;
+                RB0 = 1;    // Turn on DCD light
             }
             else
             {
-                if (++sample_clock == next_sample)
-                {
-                    ones_count++;
-                    bit_count++;
-                    last8bits >> = 1; // Shift in a zero, from the left
-                    last8bits |= 0x80; // Make that zero a one
-                    sample_clock = 0;
-                    next_sample = 8; // 1 ax.25 bit
-                }
-            }
-            if (last8bits == 0x7E)
+                if (bit_count == 8)			// Just grabbed 8'th bit for a full byte
+		{
+                    bit_count = 0;				// Reset bit counter
+                    TXREG = last8bits;
+
+		}		// end 'if (bit_count == 8)'
+            }		// end else for 'if (last8bits == 0x7E)'
+            if (ones_count == 7)
             {
-                bit_count = 0; // Sync the bit counter here
-                TXREG = 0x1B;
-                TXREG = 0x7B;
-                RA4 = 1; // Turn on DCD LED
+                dcd = 0;
+                RB0 = 0;
             }
-            else
-            {
-                if (bit_count == 8)
-                {
-                    bit_count = 0;
-                    TXREG = 0x7B;
-                }
-            }
-        }
-        else // DCD expired, must be recieving noise
-        {
-            busy = 0;
-            RA4 = 0; // Turn off DCD LED
-        }
+        }		// end 'if (dcd)'
+        
+        TMR2IF = 0;
     }
 }
 
 int main() {
     Init_Hardware();
-    while (1); // This would be a good place to put serial RX polling
+    while (1)
+    {// This would be a good place to put serial RX polling
+        
+    }
 }

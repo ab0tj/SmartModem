@@ -2,7 +2,7 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F88 ]
-"135 /usr/hitech/picc/9.82/include/pic16f88.h
+"135 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\include\pic16f88.h
 [s S31 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
 `uc 1 Z 1 0 :1:2 
@@ -415,79 +415,79 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 [u S1101 . 1 `S1093 1 . 1 0 ]
-"39 Main.c
-[v F1167 `(v  1 t 0 ]
-"5 /usr/hitech/picc/9.82/sources/abdiv.c
+"45 Main.c
+[v F1175 `(v  1 t 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\abdiv.c
 [v ___abdiv `(c  1 e 1 0 ]
-"5 /usr/hitech/picc/9.82/sources/abmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\abmod.c
 [v ___abmod `(c  1 e 1 0 ]
-"34 /usr/hitech/picc/9.82/sources/abtoft.c
+"34 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\abtoft.c
 [v ___abtoft `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/aldiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\aldiv.c
 [v ___aldiv `(l  1 e 4 0 ]
-"5 /usr/hitech/picc/9.82/sources/almod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\almod.c
 [v ___almod `(l  1 e 4 0 ]
-"43 /usr/hitech/picc/9.82/sources/altoft.c
+"43 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\altoft.c
 [v ___altoft `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/atdiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\atdiv.c
 [v ___atdiv `(m  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/atmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\atmod.c
 [v ___atmod `(m  1 e 3 0 ]
-"38 /usr/hitech/picc/9.82/sources/attoft.c
+"38 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\attoft.c
 [v ___attoft `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/awdiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\awdiv.c
 [v ___awdiv `(i  1 e 2 0 ]
-"5 /usr/hitech/picc/9.82/sources/awmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\awmod.c
 [v ___awmod `(i  1 e 2 0 ]
-"33 /usr/hitech/picc/9.82/sources/awtoft.c
+"33 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\awtoft.c
 [v ___awtoft `(f  1 e 3 0 ]
-"3 /usr/hitech/picc/9.82/sources/bmul.c
+"3 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\bmul.c
 [v ___bmul `(uc  1 e 1 0 ]
-"63 /usr/hitech/picc/9.82/sources/float.c
+"63 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\float.c
 [v ___ftpack `(f  1 e 3 0 ]
-"87 /usr/hitech/picc/9.82/sources/ftadd.c
+"87 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftadd.c
 [v ___ftadd `(f  1 e 3 0 ]
-"50 /usr/hitech/picc/9.82/sources/ftdiv.c
+"50 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftdiv.c
 [v ___ftdiv `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/ftge.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftge.c
 [v ___ftge `(b  1 e 0 0 ]
-"52 /usr/hitech/picc/9.82/sources/ftmul.c
+"52 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftmul.c
 [v ___ftmul `(f  1 e 3 0 ]
-"16 /usr/hitech/picc/9.82/sources/ftneg.c
+"16 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftneg.c
 [v ___ftneg `(f  1 e 3 0 ]
-"17 /usr/hitech/picc/9.82/sources/ftsub.c
+"17 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ftsub.c
 [v ___ftsub `(f  1 e 3 0 ]
-"45 /usr/hitech/picc/9.82/sources/fttol.c
+"45 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\fttol.c
 [v ___fttol `(l  1 e 4 0 ]
-"5 /usr/hitech/picc/9.82/sources/lbdiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lbdiv.c
 [v ___lbdiv `(uc  1 e 1 0 ]
-"5 /usr/hitech/picc/9.82/sources/lbmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lbmod.c
 [v ___lbmod `(uc  1 e 1 0 ]
-"28 /usr/hitech/picc/9.82/sources/lbtoft.c
+"28 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lbtoft.c
 [v ___lbtoft `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/lldiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lldiv.c
 [v ___lldiv `(ul  1 e 4 0 ]
-"5 /usr/hitech/picc/9.82/sources/llmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\llmod.c
 [v ___llmod `(ul  1 e 4 0 ]
-"36 /usr/hitech/picc/9.82/sources/lltoft.c
+"36 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lltoft.c
 [v ___lltoft `(f  1 e 3 0 ]
-"3 /usr/hitech/picc/9.82/sources/lmul.c
+"3 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lmul.c
 [v ___lmul `(ul  1 e 4 0 ]
-"5 /usr/hitech/picc/9.82/sources/ltdiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ltdiv.c
 [v ___ltdiv `(um  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/ltmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\ltmod.c
 [v ___ltmod `(um  1 e 3 0 ]
-"31 /usr/hitech/picc/9.82/sources/lttoft.c
+"31 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lttoft.c
 [v ___lttoft `(f  1 e 3 0 ]
-"5 /usr/hitech/picc/9.82/sources/lwdiv.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lwdiv.c
 [v ___lwdiv `(ui  1 e 2 0 ]
-"5 /usr/hitech/picc/9.82/sources/lwmod.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lwmod.c
 [v ___lwmod `(ui  1 e 2 0 ]
-"29 /usr/hitech/picc/9.82/sources/lwtoft.c
+"29 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\lwtoft.c
 [v ___lwtoft `(f  1 e 3 0 ]
-"3 /usr/hitech/picc/9.82/sources/tmul.c
+"3 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\tmul.c
 [v ___tmul `(um  1 e 3 0 ]
-"3 /usr/hitech/picc/9.82/sources/wmul.c
+"3 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
 "7 eeprom.c
 [v _eecpymem `(v  1 e 0 0 ]
@@ -517,11 +517,11 @@
 [v ___fttoee `(f  1 e 3 0 ]
 "132
 [v ___fltoee `(d  1 e 3 0 ]
-"20 Main.c
+"29 Main.c
 [v _Init_Hardware `(v  1 e 0 0 ]
-"39
+"45
 [v _isr `I(v  1 e 0 0 ]
-"130
+"134
 [v _main `(i  1 e 2 0 ]
 "114 /hitech/products/compilers/pic/pro/9.82/dist/linux/include/pic16f88.h
 [v _INDF `VEuc  1 e 1 @0 ]
@@ -1059,7 +1059,7 @@
 [v _EEPGD `VEb  1 e 0 @3175 ]
 "1089
 [v _EECON2 `VEuc  1 e 1 @397 ]
-"152 /usr/hitech/picc/9.82/include/pic16f88.h
+"152 C:\Program Files (x86)\HI-TECH Software\PICC\9.82\include\pic16f88.h
 [v _STATUSbits `VES43  1 e 1 @3 ]
 "182
 [v _PORTAbits `VES78  1 e 1 @5 ]
@@ -1122,39 +1122,37 @@
 "1085
 [v _EECON1bits `VES1101  1 e 1 @396 ]
 "17 Main.c
-[v _busy `b  1 e 0 0 ]
+[v _last `b  1 e 0 0 ]
 "18
-[v _byte `uc  1 e 1 0 ]
-"130
+[v _rxtoggled `b  1 e 0 0 ]
+"19
+[v _dcd `b  1 e 0 0 ]
+"20
+[v _flag `b  1 e 0 0 ]
+"21
+[v _count `uc  1 e 1 0 ]
+"22
+[v _last8bits `uc  1 e 1 0 ]
+"23
+[v _bit_count `uc  1 e 1 0 ]
+"24
+[v _sample_clock `uc  1 e 1 0 ]
+"25
+[v _next_sample `uc  1 e 1 0 ]
+"26
+[v _ones_count `uc  1 e 1 0 ]
+"134
 [v _main `(i  1 e 2 0 ]
 {
-"133
+"140
 } 0
-"20
+"29
 [v _Init_Hardware `(v  1 e 0 0 ]
 {
-"37
+"43
 } 0
-"39
+"45
 [v _isr `I(v  1 e 0 0 ]
 {
-"40
-[v isr@count `uc  1 s 1 count ]
-"41
-[v isr@last `b  1 s 0 last ]
-"42
-[v isr@rxtoggled `b  1 s 0 rxtoggled ]
-"43
-[v isr@last8bits `uc  1 s 1 last8bits ]
-"44
-[v isr@bit_count `uc  1 s 1 bit_count ]
-"45
-[v isr@dcd `uc  1 s 1 dcd ]
-"46
-[v isr@sample_clock `uc  1 s 1 sample_clock ]
-"47
-[v isr@next_sample `uc  1 s 1 next_sample ]
-"48
-[v isr@ones_count `uc  1 s 1 ones_count ]
-"128
+"132
 } 0
