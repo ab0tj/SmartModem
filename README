@@ -1,5 +1,8 @@
 SmartModem
 
+*** This is old code that was never finished. You should probably not use it for anything other than stealing code snippets.
+I am only leaving it here for posterity ***
+
 A ZCD packet modem for the Microchip PIC 16F88.
 Designed for use with the MiniGate. (See https://github.com/ab0tj/MiniGate)
 
